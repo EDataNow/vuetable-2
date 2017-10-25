@@ -4,7 +4,13 @@
       <tr>
         <template v-for="field in tableFields">
           <template v-if="field.visible">
-            <template v-if="isSpecialField(field.name)">
+            <template v-if="field.componentHeaderName != undefined">
+              <th :class="['vuetable-th-header-component-'+trackBy, field.titleClass]">
+                <component :is="field.componentHeaderName" :row-field="field.sortField">
+                </component>
+              </th>
+            </template>
+            <template v-else-if="isSpecialField(field.name)">
               <th v-if="extractName(field.name) == '__checkbox'"
                 :class="['vuetable-th-checkbox-'+trackBy, field.titleClass]">
                 <input type="checkbox" @change="toggleAllCheckboxes(field.name, $event)"
@@ -328,7 +334,7 @@ export default {
       return this.minRows - this.tableData.length
     },
     isApiMode () {
-      return this.apiMode 
+      return this.apiMode
     },
     isDataMode () {
       return ! this.apiMode
@@ -353,6 +359,7 @@ export default {
             dataClass: '',
             callback: null,
             visible: true,
+            componentHeaderName: '',
           }
         } else {
           obj = {
@@ -363,6 +370,7 @@ export default {
             dataClass: (field.dataClass === undefined) ? '' : field.dataClass,
             callback: (field.callback === undefined) ? '' : field.callback,
             visible: (field.visible === undefined) ? true : field.visible,
+            componentHeaderName: field.componentHeaderName,
           }
         }
         self.tableFields.push(obj)
@@ -403,8 +411,8 @@ export default {
       return title
     },
     renderSequence (index) {
-      return this.tablePagination 
-        ? this.tablePagination.from + index 
+      return this.tablePagination
+        ? this.tablePagination.from + index
         : index
     },
     isSpecialField (fieldName) {
