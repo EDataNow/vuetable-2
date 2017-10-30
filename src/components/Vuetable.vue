@@ -46,61 +46,126 @@
     </thead>
     <tbody v-cloak class="vuetable-body">
       <template v-for="(item, index) in tableData">
-        <tr @dblclick="onRowDoubleClicked(item, $event)" :item-index="index" @click="onRowClicked(item, $event)" :render="onRowChanged(item)" :class="onRowClass(item, index)">
-          <template v-for="field in tableFields">
-            <template v-if="field.visible">
-              <template v-if="isSpecialField(field.name)">
-                <td v-if="extractName(field.name) == '__sequence'" :class="['vuetable-sequence', field.dataClass]"
-                  v-html="renderSequence(index)">
-                </td>
-                <td v-if="extractName(field.name) == '__handle'" :class="['vuetable-handle', field.dataClass]"
-                  v-html="renderIconTag(['handle-icon', css.handleIcon])"
-                ></td>
-                <td v-if="extractName(field.name) == '__checkbox'" :class="['vuetable-checkboxes', field.dataClass]">
-                  <input type="checkbox"
-                    @change="toggleCheckbox(item, field.name, $event)"
-                    :checked="rowSelected(item, field.name)">
-                </td>
-                <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
-                  <component :is="extractArgs(field.name)"
-                    :row-data="item" :row-index="index" :row-field="field.sortField"
-                  ></component>
-                </td>
-                <td v-if="extractName(field.name) === '__slot'" :class="['vuetable-slot', field.dataClass]">
-                  <slot :name="extractArgs(field.name)"
-                    :row-data="item" :row-index="index" :row-field="field.sortField"
-                  ></slot>
-                </td>
+        <template v-if='grouped'>
+          <tr>
+            <th :colspan='fields.length'> {{ item.groupName  }} </th>
+          </tr>
+          <template v-for="(item, index) in item.data">
+            <tr @dblclick="onRowDoubleClicked(item, $event)" :item-index="index" @click="onRowClicked(item, $event)" :render="onRowChanged(item)" :class="onRowClass(item, index)">
+              <template v-for="field in tableFields">
+                <template v-if="field.visible">
+                  <template v-if="isSpecialField(field.name)">
+                    <td v-if="extractName(field.name) == '__sequence'" :class="['vuetable-sequence', field.dataClass]"
+                      v-html="renderSequence(index)">
+                    </td>
+                    <td v-if="extractName(field.name) == '__handle'" :class="['vuetable-handle', field.dataClass]"
+                      v-html="renderIconTag(['handle-icon', css.handleIcon])"
+                    ></td>
+                    <td v-if="extractName(field.name) == '__checkbox'" :class="['vuetable-checkboxes', field.dataClass]">
+                      <input type="checkbox"
+                        @change="toggleCheckbox(item, field.name, $event)"
+                        :checked="rowSelected(item, field.name)">
+                    </td>
+                    <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
+                      <component :is="extractArgs(field.name)"
+                        :row-data="item" :row-index="index" :row-field="field.sortField"
+                      ></component>
+                    </td>
+                    <td v-if="extractName(field.name) === '__slot'" :class="['vuetable-slot', field.dataClass]">
+                      <slot :name="extractArgs(field.name)"
+                        :row-data="item" :row-index="index" :row-field="field.sortField"
+                      ></slot>
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td v-if="hasCallback(field)" :class="field.dataClass"
+                      @click="onCellClicked(item, field, $event)"
+                      @dblclick="onCellDoubleClicked(item, field, $event)"
+                      v-html="callCallback(field, item)"
+                    >
+                    </td>
+                    <td v-else :class="field.dataClass"
+                      @click="onCellClicked(item, field, $event)"
+                      @dblclick="onCellDoubleClicked(item, field, $event)"
+                      v-html="getObjectValue(item, field.name, '')"
+                    >
+                    </td>
+                  </template>
+                </template>
               </template>
-              <template v-else>
-                <td v-if="hasCallback(field)" :class="field.dataClass"
-                  @click="onCellClicked(item, field, $event)"
-                  @dblclick="onCellDoubleClicked(item, field, $event)"
-                  v-html="callCallback(field, item)"
-                >
-                </td>
-                <td v-else :class="field.dataClass"
-                  @click="onCellClicked(item, field, $event)"
-                  @dblclick="onCellDoubleClicked(item, field, $event)"
-                  v-html="getObjectValue(item, field.name, '')"
-                >
-                </td>
-              </template>
+            </tr>
+            <template v-if="useDetailRow">
+              <tr v-if="isVisibleDetailRow(item[trackBy])"
+                @click="onDetailRowClick(item, $event)"
+                :class="[css.detailRowClass]"
+              >
+                <transition :name="detailRowTransition">
+                  <td :colspan="countVisibleFields">
+                    <component :is="detailRowComponent" :row-data="item" :row-index="index"></component>
+                  </td>
+                </transition>
+              </tr>
             </template>
           </template>
-        </tr>
-        <template v-if="useDetailRow">
-          <tr v-if="isVisibleDetailRow(item[trackBy])"
-            @click="onDetailRowClick(item, $event)"
-            :class="[css.detailRowClass]"
-          >
-            <transition :name="detailRowTransition">
-              <td :colspan="countVisibleFields">
-                <component :is="detailRowComponent" :row-data="item" :row-index="index"></component>
-              </td>
-            </transition>
-          </tr>
         </template>
+        <template v-else>
+          <tr @dblclick="onRowDoubleClicked(item, $event)" :item-index="index" @click="onRowClicked(item, $event)" :render="onRowChanged(item)" :class="onRowClass(item, index)">
+            <template v-for="field in tableFields">
+              <template v-if="field.visible">
+                <template v-if="isSpecialField(field.name)">
+                  <td v-if="extractName(field.name) == '__sequence'" :class="['vuetable-sequence', field.dataClass]"
+                    v-html="renderSequence(index)">
+                  </td>
+                  <td v-if="extractName(field.name) == '__handle'" :class="['vuetable-handle', field.dataClass]"
+                    v-html="renderIconTag(['handle-icon', css.handleIcon])"
+                  ></td>
+                  <td v-if="extractName(field.name) == '__checkbox'" :class="['vuetable-checkboxes', field.dataClass]">
+                    <input type="checkbox"
+                      @change="toggleCheckbox(item, field.name, $event)"
+                      :checked="rowSelected(item, field.name)">
+                  </td>
+                  <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
+                    <component :is="extractArgs(field.name)"
+                      :row-data="item" :row-index="index" :row-field="field.sortField"
+                    ></component>
+                  </td>
+                  <td v-if="extractName(field.name) === '__slot'" :class="['vuetable-slot', field.dataClass]">
+                    <slot :name="extractArgs(field.name)"
+                      :row-data="item" :row-index="index" :row-field="field.sortField"
+                    ></slot>
+                  </td>
+                </template>
+                <template v-else>
+                  <td v-if="hasCallback(field)" :class="field.dataClass"
+                    @click="onCellClicked(item, field, $event)"
+                    @dblclick="onCellDoubleClicked(item, field, $event)"
+                    v-html="callCallback(field, item)"
+                  >
+                  </td>
+                  <td v-else :class="field.dataClass"
+                    @click="onCellClicked(item, field, $event)"
+                    @dblclick="onCellDoubleClicked(item, field, $event)"
+                    v-html="getObjectValue(item, field.name, '')"
+                  >
+                  </td>
+                </template>
+              </template>
+            </template>
+          </tr>
+          <template v-if="useDetailRow">
+            <tr v-if="isVisibleDetailRow(item[trackBy])"
+              @click="onDetailRowClick(item, $event)"
+              :class="[css.detailRowClass]"
+            >
+              <transition :name="detailRowTransition">
+                <td :colspan="countVisibleFields">
+                  <component :is="detailRowComponent" :row-data="item" :row-index="index"></component>
+                </td>
+              </transition>
+            </tr>
+          </template>
+        </template>
+
       </template>
       <template v-if="displayEmptyDataRow">
         <tr>
@@ -271,6 +336,10 @@ export default {
         return 'No Data Available'
       }
     },
+    grouped: {
+      type: Boolean,
+      default: false
+    }
   },
   data () {
     return {
@@ -296,9 +365,16 @@ export default {
   },
   computed: {
     useDetailRow () {
-      if (this.tableData && this.tableData[0] && this.detailRowComponent !== '' && typeof this.tableData[0][this.trackBy] === 'undefined') {
-        this.warn('You need to define unique row identifier in order for detail-row feature to work. Use `track-by` prop to define one!')
-        return false
+      if (this.grouped) {
+        if (this.tableData && this.tableData[0].data && this.detailRowComponent !== '' && typeof this.tableData[0].data[0][this.trackBy] === 'undefined') {
+          this.warn('You need to define unique row identifier in order for detail-row feature to work. Use `track-by` prop to define one!')
+          return false
+        }
+      } else {
+        if (this.tableData && this.tableData[0] && this.detailRowComponent !== '' && typeof this.tableData[0][this.trackBy] === 'undefined') {
+          this.warn('You need to define unique row identifier in order for detail-row feature to work. Use `track-by` prop to define one!')
+          return false
+        }
       }
 
       return this.detailRowComponent !== ''
@@ -359,7 +435,7 @@ export default {
             dataClass: '',
             callback: null,
             visible: true,
-            componentHeaderName: '',
+            componentHeaderName: ''
           }
         } else {
           obj = {
