@@ -518,10 +518,15 @@ export default {
 
       this.httpOptions['params'] = this.getAllQueryParams()
 
-      axios[this.httpMethod](this.apiUrl, this.httpOptions).then(
-          success,
-          failed
-      ).catch(() => failed())
+      this.$nextTick(function() {
+        this.fireEvent('pagination-data', this.tablePagination)
+        this.fireEvent('loaded')
+      })
+
+      // axios[this.httpMethod](this.apiUrl, this.httpOptions).then(
+      //     success,
+      //     failed
+      // ).catch(() => failed())
     },
     loadSuccess (response) {
       this.fireEvent('load-success', response)
