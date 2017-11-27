@@ -48,7 +48,15 @@
       <template v-for="(item, index) in tableData">
         <template v-if='grouped'>
           <tr>
-            <th :colspan='fields.length'> {{ item.groupName  }} </th>
+            <template v-if="item.componentGroupName != undefined">
+              <th :colspan='fields.length' :class="['vuetable-th-header-component-'+trackBy, item.titleClass]">
+                <component :is="item.componentGroupName" :row-data="item.groupData" :row-index="index">
+                </component>
+              </th>
+            </template>
+            <template v-else>
+              <th :colspan='fields.length'> {{ item.groupName }} </th>
+            </template>
           </tr>
           <template v-for="(item, index) in item.data">
             <tr @dblclick="onRowDoubleClicked(item, $event)" :item-index="index" @click="onRowClicked(item, $event)" :render="onRowChanged(item)" :class="onRowClass(item, index)">
@@ -518,15 +526,10 @@ export default {
 
       this.httpOptions['params'] = this.getAllQueryParams()
 
-      this.$nextTick(function() {
-        this.fireEvent('pagination-data', this.tablePagination)
-        this.fireEvent('loaded')
-      })
-
-      // axios[this.httpMethod](this.apiUrl, this.httpOptions).then(
-      //     success,
-      //     failed
-      // ).catch(() => failed())
+      axios[this.httpMethod](this.apiUrl, this.httpOptions).then(
+          success,
+          failed
+      ).catch(() => failed())
     },
     loadSuccess (response) {
       this.fireEvent('load-success', response)
