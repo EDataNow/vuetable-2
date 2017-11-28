@@ -48,9 +48,9 @@
       <template v-for="(item, index) in tableData">
         <template v-if='grouped'>
           <tr>
-            <template v-if="item.componentGroupName != undefined">
+            <template v-if="groupField != undefined">
               <th :colspan='fields.length' :class="['vuetable-th-header-component-'+trackBy, item.titleClass]">
-                <component :is="item.componentGroupName" :row-data="item.groupData" :row-index="index">
+                <component :is="groupField.componentGroupName" :row-data="item.groupData" :row-index="index">
                 </component>
               </th>
             </template>
@@ -196,6 +196,9 @@ import axios from 'axios'
 
 export default {
   props: {
+    groupField: {
+      type: Object
+    },
     fields: {
       type: Array,
       required: true
@@ -526,26 +529,27 @@ export default {
 
       this.httpOptions['params'] = this.getAllQueryParams()
 
-      axios[this.httpMethod](this.apiUrl, this.httpOptions).then(
-          success,
-          failed
-      ).catch(() => failed())
+      success()
+      // axios[this.httpMethod](this.apiUrl, this.httpOptions).then(
+      //     success,
+      //     failed
+      // ).catch(() => failed())
     },
     loadSuccess (response) {
       this.fireEvent('load-success', response)
 
-      let body = this.transform(response.data)
+      // let body = this.transform(response.data)
 
-      this.tableData = this.getObjectValue(body, this.dataPath, null)
-      this.tablePagination = this.getObjectValue(body, this.paginationPath, null)
+      // this.tableData = this.getObjectValue(body, this.dataPath, null)
+      // this.tablePagination = this.getObjectValue(body, this.paginationPath, null)
 
-      if (this.tablePagination === null) {
-        this.warn('vuetable: pagination-path "' + this.paginationPath + '" not found. '
-          + 'It looks like the data returned from the sever does not have pagination information '
-          + "or you may have set it incorrectly.\n"
-          + 'You can explicitly suppress this warning by setting pagination-path="".'
-        )
-      }
+      // if (this.tablePagination === null) {
+      //   this.warn('vuetable: pagination-path "' + this.paginationPath + '" not found. '
+      //     + 'It looks like the data returned from the sever does not have pagination information '
+      //     + "or you may have set it incorrectly.\n"
+      //     + 'You can explicitly suppress this warning by setting pagination-path="".'
+      //   )
+      // }
 
       this.$nextTick(function() {
         this.fireEvent('pagination-data', this.tablePagination)
