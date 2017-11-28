@@ -50,7 +50,7 @@
           <tr>
             <template v-if="groupField != undefined">
               <th :colspan='fields.length' :class="['vuetable-th-header-component-'+trackBy, item.titleClass]">
-                <component :is="groupField.componentGroupName" :row-data="item.groupData" :row-index="index">
+                <component :is="groupField.componentGroupName" :row-data="item.groupData" :row-index="index" :permissions="permissions">
                 </component>
               </th>
             </template>
