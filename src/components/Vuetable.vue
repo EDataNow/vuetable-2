@@ -451,6 +451,7 @@ export default {
             dataClass: '',
             callback: null,
             visible: true,
+            searchable: true,
             componentHeaderName: ''
           }
         } else {
@@ -462,6 +463,7 @@ export default {
             dataClass: (field.dataClass === undefined) ? '' : field.dataClass,
             callback: (field.callback === undefined) ? '' : field.callback,
             visible: (field.visible === undefined) ? true : field.visible,
+            searchable: (field.searchable === undefined) ? true : field.searchable,
             componentHeaderName: field.componentHeaderName,
           }
         }
