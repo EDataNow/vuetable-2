@@ -195,6 +195,8 @@
 
 <script>
 import axios from 'axios'
+import flattenDeep from 'lodash/flattenDeep'
+import compact from 'lodash/compact'
 
 export default {
   props: {
@@ -843,10 +845,27 @@ export default {
           [].forEach.call(els, cb);
         }
 
+      let selected;
+      let flatData;
+
+      if (this.grouped) {
+        flatData = compact(flattenDeep(this.tableData.map((object) => { return object.data })))
+      }
+
       // count how many checkbox row in the current page has been checked
-      let selected = this.tableData.filter(function(item) {
-        return self.selectedTo.indexOf(item[idColumn]) >= 0
-      })
+      if (this.grouped) {
+        selected = flatData.filter(function(item) {
+          if (item[idColumn]) {
+            return self.selectedTo.indexOf(item[idColumn]) >= 0
+          }
+        })
+      } else {
+        selected = this.tableData.filter(function(item) {
+          return self.selectedTo.indexOf(item[idColumn]) >= 0
+        })
+
+      }
+
 
       // count == 0, clear the checkbox
       if (selected.length <= 0) {
@@ -876,13 +895,29 @@ export default {
       let idColumn = this.trackBy
 
       if (isChecked) {
-        this.tableData.forEach(function(dataItem) {
-          self.selectId(dataItem[idColumn])
-        })
+        if (this.grouped) {
+          this.tableData.forEach(function(groupedItem) {
+            groupedItem.data.forEach(function(dataItem) {
+              self.selectId(dataItem[idColumn])
+            })
+          })
+        } else {
+          this.tableData.forEach(function(dataItem) {
+            self.selectId(dataItem[idColumn])
+          })
+        }
       } else {
-        this.tableData.forEach(function(dataItem) {
-          self.unselectId(dataItem[idColumn])
-        })
+        if (this.grouped) {
+          this.tableData.forEach(function(groupedItem) {
+            groupedItem.data.forEach(function(dataItem) {
+              self.unselectId(dataItem[idColumn])
+            })
+          })
+        } else {
+          this.tableData.forEach(function(dataItem) {
+            self.unselectId(dataItem[idColumn])
+          })
+        }
       }
       this.$emit('vuetable:checkbox-toggled-all', isChecked)
     },
