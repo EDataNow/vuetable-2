@@ -76,7 +76,7 @@
                     </td>
                     <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
                       <component :is="extractArgs(field.name)"
-                        :field="field" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions"
+                        :settings="field.settings" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions"
                       ></component>
                     </td>
                     <td v-if="extractName(field.name) === '__slot'" :class="['vuetable-slot', field.dataClass]">
@@ -134,7 +134,7 @@
                   </td>
                   <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
                     <component :is="extractArgs(field.name)"
-                      :field="field" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions"
+                      :settings="field.settings" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions"
                     ></component>
                   </td>
                   <td v-if="extractName(field.name) === '__slot'" :class="['vuetable-slot', field.dataClass]">
