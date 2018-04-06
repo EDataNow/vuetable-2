@@ -452,6 +452,7 @@ export default {
             callback: null,
             visible: true,
             searchable: true,
+            settings: {},
             componentHeaderName: ''
           }
         } else {
@@ -465,6 +466,7 @@ export default {
             visible: (field.visible === undefined) ? true : field.visible,
             searchable: (field.searchable === undefined) ? true : field.searchable,
             componentHeaderName: field.componentHeaderName,
+            settings: (field.settings === undefined) ? {} : field.settings
           }
         }
         self.tableFields.push(obj)
