@@ -74,7 +74,7 @@
                         @change="toggleCheckbox(item, field.name, $event)"
                         :checked="rowSelected(item, field.name)">
                     </td>
-                    <td v-if="extractName(field.name) === '__component'" fieldSettings]">
+                    <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
                       <component :is="extractArgs(field.name)"
                         :field-settings="field.settings" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions"
                       ></component>
