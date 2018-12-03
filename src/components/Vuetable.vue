@@ -1222,7 +1222,7 @@ export default {
         if (this.grouped) {
           this.tableData.forEach(groupedItem => {
             groupedItem.data.forEach(dataItem => {
-              self.unselectId(dataItem[idColumn])
+              this.unselectId(dataItem[idColumn])
             })
           })
         } else {
