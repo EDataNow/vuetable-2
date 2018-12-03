@@ -4728,7 +4728,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         if (this.grouped) {
           this.tableData.forEach(function (groupedItem) {
             groupedItem.data.forEach(function (dataItem) {
-              self.unselectId(dataItem[idColumn]);
+              _this7.unselectId(dataItem[idColumn]);
             });
           });
         } else {
