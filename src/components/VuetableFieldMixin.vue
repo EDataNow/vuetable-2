@@ -1,6 +1,9 @@
 <script>
 export default {
   props: {
+    permissions: {
+      type: Object
+    },
     rowData: {
       type: Object,
       default: null
