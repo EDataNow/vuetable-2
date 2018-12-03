@@ -1,5 +1,7 @@
 <script>
 import VuetableFieldMixin from './VuetableFieldMixin.vue'
+import compact from 'lodash/compact'
+import flattenDeep from 'lodash/flattenDeep'
 
 export default {
   mixins: [VuetableFieldMixin],
@@ -18,11 +20,26 @@ export default {
     },
 
     isAllItemsInCurrentPageSelected() {
-      if (! this.vuetable.tableData) return 
+      if (! this.vuetable.tableData) return
 
       let idColumn = this.vuetable.trackBy
       let checkbox = this.$el.querySelector('input[type=checkbox]')
-      let selected = this.vuetable.tableData.filter( (item) => this.vuetable.isSelectedRow(item[idColumn]) )
+      let self = this
+      let selected
+      let flatData
+      if (this.vuetable.grouped) {
+        flatData = compact(flattenDeep(this.vuetable.tableData.map((object) => { return object.data })))
+      }
+
+      if (this.vuetable.grouped) {
+        selected = flatData.filter(function(item) {
+          if (item[idColumn]) {
+            return self.vuetable.isSelectedRow(item[idColumn])
+          }
+        })
+      } else {
+        selected = this.vuetable.tableData.filter( (item) => this.vuetable.isSelectedRow(item[idColumn]) )
+      }
 
       // count == 0, clear the checkbox
       if (selected.length <= 0) {
@@ -38,7 +55,7 @@ export default {
       else {
         checkbox.indeterminate = false
         return true
-      }            
+      }
     }
   }
 }
