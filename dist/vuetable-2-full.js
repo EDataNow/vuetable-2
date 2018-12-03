@@ -4020,13 +4020,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.detailRowComponent !== '';
     },
     dataIsAvailable: function dataIsAvailable() {
+      if (!this.tableData) return false;
+
       if (this.grouped) {
-        if (!this.tableData[0].data) return false;
+        if (!this.tableData[0]) return false;
 
         return this.tableData[0].data.length > 0;
       } else {
-        if (!this.tableData) return false;
-
         return this.tableData.length > 0;
       }
     },
