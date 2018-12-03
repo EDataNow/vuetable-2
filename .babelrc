@@ -1,7 +1,6 @@
 {
   "presets": [
     ["env", { "modules": false }],
-    "es2015", 
     "stage-2"
   ],
   "plugins": ["transform-runtime"],
@@ -9,7 +8,15 @@
   "env": {
     "test": {
       "presets": ["env", "stage-2"],
-      "plugins": [ "istanbul" ]
+      "plugins": [ 
+        "istanbul",
+        ["module-resolver", {
+          "root": ["./src"],
+          "alias": {
+            "@": "./src"
+          }
+        }]
+      ]
     }
   }
 }
