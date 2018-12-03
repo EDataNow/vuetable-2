@@ -18,7 +18,7 @@ export default {
     noDataTemplate: {
       type: String,
       default() {
-        return 'No relevant data'
+        return ''
       }
     },
   },
