@@ -79,7 +79,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-var bind = __webpack_require__(9);
+var bind = __webpack_require__(10);
 
 /*global toString:true*/
 
@@ -492,7 +492,7 @@ module.exports = function normalizeComponent (
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(39),
+  __webpack_require__(42),
   /* template */
   null,
   /* styles */
@@ -502,7 +502,7 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\projects\\vuetable-2\\src\\components\\VuetablePaginationMixin.vue"
+Component.options.__file = "/Users/shawnlee-kwong/work/code/vuetable-2/src/components/VuetablePaginationMixin.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -532,7 +532,7 @@ module.exports = Component.exports
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(31);
+var normalizeHeaderName = __webpack_require__(34);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -549,10 +549,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(5);
+    adapter = __webpack_require__(6);
   }
   return adapter;
 }
@@ -623,16 +623,28 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var root = __webpack_require__(54);
+
+/** Built-in value references. */
+var Symbol = root.Symbol;
+
+module.exports = Symbol;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(38),
+  __webpack_require__(41),
   /* template */
   null,
   /* styles */
@@ -642,7 +654,7 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\projects\\vuetable-2\\src\\components\\VuetablePaginationInfoMixin.vue"
+Component.options.__file = "/Users/shawnlee-kwong/work/code/vuetable-2/src/components/VuetablePaginationInfoMixin.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -665,19 +677,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(23);
-var buildURL = __webpack_require__(26);
-var parseHeaders = __webpack_require__(32);
-var isURLSameOrigin = __webpack_require__(30);
-var createError = __webpack_require__(8);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(25);
+var settle = __webpack_require__(26);
+var buildURL = __webpack_require__(29);
+var parseHeaders = __webpack_require__(35);
+var isURLSameOrigin = __webpack_require__(33);
+var createError = __webpack_require__(9);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -773,7 +785,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(28);
+      var cookies = __webpack_require__(31);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -849,7 +861,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -875,7 +887,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -887,13 +899,13 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(22);
+var enhanceError = __webpack_require__(25);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -911,7 +923,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -929,7 +941,42 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && typeof value == 'object';
+}
+
+module.exports = isObjectLike;
+
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1119,7 +1166,34 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 11 */
+/* 13 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate) {(function (root) {
@@ -1129,7 +1203,7 @@ process.umask = function() { return 0; };
   var setTimeoutFunc = setTimeout;
 
   function noop() {}
-
+  
   // Polyfill for Function.prototype.bind
   function bind(fn, thisArg) {
     return function () {
@@ -1347,7 +1421,7 @@ process.umask = function() { return 0; };
   Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
     Promise._unhandledRejectionFn = fn;
   };
-
+  
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = Promise;
   } else if (!root.Promise) {
@@ -1356,22 +1430,22 @@ process.umask = function() { return 0; };
 
 })(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(60).setImmediate))
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(49)
+  __webpack_require__(65)
 }
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(34),
+  __webpack_require__(37),
   /* template */
-  __webpack_require__(46),
+  __webpack_require__(62),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -1379,7 +1453,7 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\projects\\vuetable-2\\src\\components\\Vuetable.vue"
+Component.options.__file = "/Users/shawnlee-kwong/work/code/vuetable-2/src/components/Vuetable.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Vuetable.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1403,15 +1477,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(35),
+  __webpack_require__(38),
   /* template */
-  __webpack_require__(47),
+  __webpack_require__(63),
   /* styles */
   null,
   /* scopeId */
@@ -1419,7 +1493,7 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\projects\\vuetable-2\\src\\components\\VuetablePagination.vue"
+Component.options.__file = "/Users/shawnlee-kwong/work/code/vuetable-2/src/components/VuetablePagination.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] VuetablePagination.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1443,15 +1517,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(36),
+  __webpack_require__(39),
   /* template */
-  __webpack_require__(45),
+  __webpack_require__(61),
   /* styles */
   null,
   /* scopeId */
@@ -1459,7 +1533,7 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\projects\\vuetable-2\\src\\components\\VuetablePaginationDropdown.vue"
+Component.options.__file = "/Users/shawnlee-kwong/work/code/vuetable-2/src/components/VuetablePaginationDropdown.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] VuetablePaginationDropdown.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1483,15 +1557,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(37),
+  __webpack_require__(40),
   /* template */
-  __webpack_require__(48),
+  __webpack_require__(64),
   /* styles */
   null,
   /* scopeId */
@@ -1499,7 +1573,7 @@ var Component = __webpack_require__(1)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\projects\\vuetable-2\\src\\components\\VuetablePaginationInfo.vue"
+Component.options.__file = "/Users/shawnlee-kwong/work/code/vuetable-2/src/components/VuetablePaginationInfo.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] VuetablePaginationInfo.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1523,21 +1597,21 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(17);
+module.exports = __webpack_require__(20);
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(9);
-var Axios = __webpack_require__(19);
+var bind = __webpack_require__(10);
+var Axios = __webpack_require__(22);
 var defaults = __webpack_require__(3);
 
 /**
@@ -1571,15 +1645,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(6);
-axios.CancelToken = __webpack_require__(18);
-axios.isCancel = __webpack_require__(7);
+axios.Cancel = __webpack_require__(7);
+axios.CancelToken = __webpack_require__(21);
+axios.isCancel = __webpack_require__(8);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(33);
+axios.spread = __webpack_require__(36);
 
 module.exports = axios;
 
@@ -1588,13 +1662,13 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(6);
+var Cancel = __webpack_require__(7);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1652,7 +1726,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1660,10 +1734,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(3);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(20);
-var dispatchRequest = __webpack_require__(21);
-var isAbsoluteURL = __webpack_require__(29);
-var combineURLs = __webpack_require__(27);
+var InterceptorManager = __webpack_require__(23);
+var dispatchRequest = __webpack_require__(24);
+var isAbsoluteURL = __webpack_require__(32);
+var combineURLs = __webpack_require__(30);
 
 /**
  * Create a new instance of Axios
@@ -1744,7 +1818,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 20 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1803,15 +1877,15 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(24);
-var isCancel = __webpack_require__(7);
+var transformData = __webpack_require__(27);
+var isCancel = __webpack_require__(8);
 var defaults = __webpack_require__(3);
 
 /**
@@ -1889,7 +1963,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1915,13 +1989,13 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1947,7 +2021,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1974,7 +2048,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2017,7 +2091,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2092,7 +2166,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2111,7 +2185,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2171,7 +2245,7 @@ module.exports = (
 
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2192,7 +2266,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2267,7 +2341,7 @@ module.exports = (
 
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2286,7 +2360,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2330,7 +2404,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2364,7 +2438,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2374,14 +2448,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _axios = __webpack_require__(16);
+var _axios = __webpack_require__(19);
 
 var _axios2 = _interopRequireDefault(_axios);
+
+var _flattenDeep = __webpack_require__(56);
+
+var _flattenDeep2 = _interopRequireDefault(_flattenDeep);
+
+var _compact = __webpack_require__(55);
+
+var _compact2 = _interopRequireDefault(_compact);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   props: {
+    permissions: {
+      type: Object
+    },
+    groupField: {
+      type: Object
+    },
     fields: {
       type: Array,
       required: true
@@ -2525,6 +2613,10 @@ exports.default = {
       default: function _default() {
         return 'No Data Available';
       }
+    },
+    grouped: {
+      type: Boolean,
+      default: false
     }
   },
   data: function data() {
@@ -2544,7 +2636,6 @@ exports.default = {
     this.$nextTick(function () {
       this.fireEvent('initialized', this.tableFields);
     });
-
     if (this.loadOnStart) {
       this.loadData();
     }
@@ -2552,11 +2643,17 @@ exports.default = {
 
   computed: {
     useDetailRow: function useDetailRow() {
-      if (this.tableData && this.tableData[0] && this.detailRowComponent !== '' && typeof this.tableData[0][this.trackBy] === 'undefined') {
-        this.warn('You need to define unique row identifier in order for detail-row feature to work. Use `track-by` prop to define one!');
-        return false;
+      if (this.grouped) {
+        if (this.tableData && this.tableData[0].data && this.detailRowComponent !== '' && typeof this.tableData[0].data[0][this.trackBy] === 'undefined') {
+          this.warn('You need to define unique row identifier in order for detail-row feature to work. Use `track-by` prop to define one!');
+          return false;
+        }
+      } else {
+        if (this.tableData && this.tableData[0] && this.detailRowComponent !== '' && typeof this.tableData[0][this.trackBy] === 'undefined') {
+          this.warn('You need to define unique row identifier in order for detail-row feature to work. Use `track-by` prop to define one!');
+          return false;
+        }
       }
-
       return this.detailRowComponent !== '';
     },
     countVisibleFields: function countVisibleFields() {
@@ -2586,7 +2683,6 @@ exports.default = {
       if (this.tableData.length >= this.minRows) {
         return 0;
       }
-
       return this.minRows - this.tableData.length;
     },
     isApiMode: function isApiMode() {
@@ -2602,7 +2698,6 @@ exports.default = {
         this.warn('You need to provide "fields" prop.');
         return;
       }
-
       this.tableFields = [];
       var self = this;
       var obj = void 0;
@@ -2614,7 +2709,10 @@ exports.default = {
             titleClass: '',
             dataClass: '',
             callback: null,
-            visible: true
+            visible: true,
+            searchable: true,
+            componentHeaderName: '',
+            settings: {}
           };
         } else {
           obj = {
@@ -2624,7 +2722,10 @@ exports.default = {
             titleClass: field.titleClass === undefined ? '' : field.titleClass,
             dataClass: field.dataClass === undefined ? '' : field.dataClass,
             callback: field.callback === undefined ? '' : field.callback,
-            visible: field.visible === undefined ? true : field.visible
+            visible: field.visible === undefined ? true : field.visible,
+            searchable: field.searchable === undefined ? true : field.searchable,
+            componentHeaderName: field.componentHeaderName,
+            settings: field.settings === undefined ? true : field.settings
           };
         }
         self.tableFields.push(obj);
@@ -2636,12 +2737,9 @@ exports.default = {
         this.tableData = data;
         return;
       }
-
       this.fireEvent('loading');
-
       this.tableData = this.getObjectValue(data, this.dataPath, null);
       this.tablePagination = this.getObjectValue(data, this.paginationPath, null);
-
       this.$nextTick(function () {
         this.fireEvent('pagination-data', this.tablePagination);
         this.fireEvent('loaded');
@@ -2651,17 +2749,14 @@ exports.default = {
       if (this.isSpecialField(str)) {
         return '';
       }
-
       return this.titleCase(str);
     },
     renderTitle: function renderTitle(field) {
       var title = typeof field.title === 'undefined' ? field.name.replace('.', ' ') : field.title;
-
       if (title.length > 0 && this.isInCurrentSortGroup(field)) {
         var style = 'opacity:' + this.sortIconOpacity(field) + ';position:relative;float:right';
         return title + ' ' + this.renderIconTag(['sort-icon', this.sortIcon(field)], 'style="' + style + '"');
       }
-
       return title;
     },
     renderSequence: function renderSequence(index) {
@@ -2694,26 +2789,12 @@ exports.default = {
         this.callDataManager();
         return;
       }
-
       this.fireEvent('loading');
-
       this.httpOptions['params'] = this.getAllQueryParams();
-
-      _axios2.default[this.httpMethod](this.apiUrl, this.httpOptions).then(success, failed).catch(function () {
-        return failed();
-      });
+      success();
     },
     loadSuccess: function loadSuccess(response) {
       this.fireEvent('load-success', response);
-
-      var body = this.transform(response.data);
-
-      this.tableData = this.getObjectValue(body, this.dataPath, null);
-      this.tablePagination = this.getObjectValue(body, this.paginationPath, null);
-
-      if (this.tablePagination === null) {
-        this.warn('vuetable: pagination-path "' + this.paginationPath + '" not found. ' + 'It looks like the data returned from the sever does not have pagination information ' + "or you may have set it incorrectly.\n" + 'You can explicitly suppress this warning by setting pagination-path="".');
-      }
 
       this.$nextTick(function () {
         this.fireEvent('pagination-data', this.tablePagination);
@@ -2727,11 +2808,9 @@ exports.default = {
     },
     transform: function transform(data) {
       var func = 'transform';
-
       if (this.parentFunctionExists(func)) {
         return this.$parent[func].call(this.$parent, data);
       }
-
       return data;
     },
     parentFunctionExists: function parentFunctionExists(func) {
@@ -2743,7 +2822,6 @@ exports.default = {
       if (this.parentFunctionExists(func)) {
         return this.$parent[func].call(this.$parent, args);
       }
-
       return defaultValue;
     },
     fireEvent: function fireEvent(eventName, args) {
@@ -2759,33 +2837,26 @@ exports.default = {
       params[this.queryParams.sort] = this.getSortParam();
       params[this.queryParams.page] = this.currentPage;
       params[this.queryParams.perPage] = this.perPage;
-
       for (var x in this.appendParams) {
         params[x] = this.appendParams[x];
       }
-
       return params;
     },
     getSortParam: function getSortParam() {
       if (!this.sortOrder || this.sortOrder.field == '') {
         return '';
       }
-
       if (typeof this.$parent['getSortParam'] == 'function') {
         return this.$parent['getSortParam'].call(this.$parent, this.sortOrder);
       }
-
       return this.getDefaultSortParam();
     },
     getDefaultSortParam: function getDefaultSortParam() {
       var result = '';
-
       for (var i = 0; i < this.sortOrder.length; i++) {
         var fieldName = typeof this.sortOrder[i].sortField === 'undefined' ? this.sortOrder[i].field : this.sortOrder[i].sortField;
-
         result += fieldName + '|' + this.sortOrder[i].direction + (i + 1 < this.sortOrder.length ? ',' : '');
       }
-
       return result;
     },
     extractName: function extractName(string) {
@@ -2804,13 +2875,11 @@ exports.default = {
       if (!this.isSortable(field)) {
         return false;
       }
-
       for (var i = 0; i < this.sortOrder.length; i++) {
         if (this.fieldIsInSortOrderPosition(field, i)) {
           return i;
         }
       }
-
       return false;
     },
     fieldIsInSortOrderPosition: function fieldIsInSortOrderPosition(field, i) {
@@ -2818,21 +2887,17 @@ exports.default = {
     },
     orderBy: function orderBy(field, event) {
       if (!this.isSortable(field)) return;
-
       var key = this.multiSortKey.toLowerCase() + 'Key';
-
       if (this.multiSort && event[key]) {
         this.multiColumnSort(field);
       } else {
         this.singleColumnSort(field);
       }
-
       this.currentPage = 1;
       this.loadData();
     },
     multiColumnSort: function multiColumnSort(field) {
       var i = this.currentSortOrderPosition(field);
-
       if (i === false) {
         this.sortOrder.push({
           field: field.name,
@@ -2851,9 +2916,7 @@ exports.default = {
       if (this.sortOrder.length === 0) {
         this.clearSortOrder();
       }
-
       this.sortOrder.splice(1);
-
       if (this.fieldIsInSortOrderPosition(field, 0)) {
         this.sortOrder[0].direction = this.sortOrder[0].direction === 'asc' ? 'desc' : 'asc';
       } else {
@@ -2872,27 +2935,21 @@ exports.default = {
     sortIcon: function sortIcon(field) {
       var cls = '';
       var i = this.currentSortOrderPosition(field);
-
       if (i !== false) {
         cls = this.sortOrder[i].direction == 'asc' ? this.css.ascendingIcon : this.css.descendingIcon;
       }
-
       return cls;
     },
     sortIconOpacity: function sortIconOpacity(field) {
       var max = 1.0,
           min = 0.3,
           step = 0.3;
-
       var count = this.sortOrder.length;
       var current = this.currentSortOrderPosition(field);
-
       if (max - count * step < min) {
         step = (max - min) / (count - 1);
       }
-
       var opacity = max - current * step;
-
       return opacity;
     },
     hasCallback: function hasCallback(item) {
@@ -2900,25 +2957,19 @@ exports.default = {
     },
     callCallback: function callCallback(field, item) {
       if (!this.hasCallback(field)) return;
-
       if (typeof field.callback == 'function') {
         return field.callback(this.getObjectValue(item, field.name));
       }
-
       var args = field.callback.split('|');
       var func = args.shift();
-
       if (typeof this.$parent[func] === 'function') {
         var value = this.getObjectValue(item, field.name);
-
         return args.length > 0 ? this.$parent[func].apply(this.$parent, [value].concat(args)) : this.$parent[func].call(this.$parent, value);
       }
-
       return null;
     },
     getObjectValue: function getObjectValue(object, path, defaultValue) {
       defaultValue = typeof defaultValue === 'undefined' ? null : defaultValue;
-
       var obj = object;
       if (path.trim() != '') {
         var keys = path.split('.');
@@ -2936,12 +2987,10 @@ exports.default = {
     toggleCheckbox: function toggleCheckbox(dataItem, fieldName, event) {
       var isChecked = event.target.checked;
       var idColumn = this.trackBy;
-
       if (dataItem[idColumn] === undefined) {
         this.warn('__checkbox field: The "' + this.trackBy + '" field does not exist! Make sure the field you specify in "track-by" prop does exist.');
         return;
       }
-
       var key = dataItem[idColumn];
       if (isChecked) {
         this.selectId(key);
@@ -2966,12 +3015,10 @@ exports.default = {
     rowSelected: function rowSelected(dataItem, fieldName) {
       var idColumn = this.trackBy;
       var key = dataItem[idColumn];
-
       return this.isSelectedRow(key);
     },
     checkCheckboxesState: function checkCheckboxesState(fieldName) {
       if (!this.tableData) return;
-
       var self = this;
       var idColumn = this.trackBy;
       var selector = 'th.vuetable-th-checkbox-' + idColumn + ' input[type=checkbox]';
@@ -2980,10 +3027,25 @@ exports.default = {
       if (els.forEach === undefined) els.forEach = function (cb) {
         [].forEach.call(els, cb);
       };
+      var selected = void 0;
+      var flatData = void 0;
+      if (this.grouped) {
+        flatData = (0, _compact2.default)((0, _flattenDeep2.default)(this.tableData.map(function (object) {
+          return object.data;
+        })));
+      }
 
-      var selected = this.tableData.filter(function (item) {
-        return self.selectedTo.indexOf(item[idColumn]) >= 0;
-      });
+      if (this.grouped) {
+        selected = flatData.filter(function (item) {
+          if (item[idColumn]) {
+            return self.selectedTo.indexOf(item[idColumn]) >= 0;
+          }
+        });
+      } else {
+        selected = this.tableData.filter(function (item) {
+          return self.selectedTo.indexOf(item[idColumn]) >= 0;
+        });
+      }
 
       if (selected.length <= 0) {
         els.forEach(function (el) {
@@ -3006,15 +3068,30 @@ exports.default = {
       var self = this;
       var isChecked = event.target.checked;
       var idColumn = this.trackBy;
-
       if (isChecked) {
-        this.tableData.forEach(function (dataItem) {
-          self.selectId(dataItem[idColumn]);
-        });
+        if (this.grouped) {
+          this.tableData.forEach(function (groupedItem) {
+            groupedItem.data.forEach(function (dataItem) {
+              self.selectId(dataItem[idColumn]);
+            });
+          });
+        } else {
+          this.tableData.forEach(function (dataItem) {
+            self.selectId(dataItem[idColumn]);
+          });
+        }
       } else {
-        this.tableData.forEach(function (dataItem) {
-          self.unselectId(dataItem[idColumn]);
-        });
+        if (this.grouped) {
+          this.tableData.forEach(function (groupedItem) {
+            groupedItem.data.forEach(function (dataItem) {
+              self.unselectId(dataItem[idColumn]);
+            });
+          });
+        } else {
+          this.tableData.forEach(function (dataItem) {
+            self.unselectId(dataItem[idColumn]);
+          });
+        }
       }
       this.$emit('vuetable:checkbox-toggled-all', isChecked);
     },
@@ -3058,17 +3135,14 @@ exports.default = {
     },
     showField: function showField(index) {
       if (index < 0 || index > this.tableFields.length) return;
-
       this.tableFields[index].visible = true;
     },
     hideField: function hideField(index) {
       if (index < 0 || index > this.tableFields.length) return;
-
       this.tableFields[index].visible = false;
     },
     toggleField: function toggleField(index) {
       if (index < 0 || index > this.tableFields.length) return;
-
       this.tableFields[index].visible = !this.tableFields[index].visible;
     },
     renderIconTag: function renderIconTag(classes) {
@@ -3085,7 +3159,6 @@ exports.default = {
       total = total === null ? this.dataTotal : total;
       perPage = perPage === null ? this.perPage : perPage;
       currentPage = currentPage === null ? this.currentPage : currentPage;
-
       return {
         'total': total,
         'per_page': perPage,
@@ -3104,7 +3177,6 @@ exports.default = {
     },
     callDataManager: function callDataManager() {
       if (this.dataManager === null && this.data === null) return;
-
       if (Array.isArray(this.data)) {
         console.log('data mode: array');
         this.setData(this.data);
@@ -3118,11 +3190,9 @@ exports.default = {
         this.warn('"row-class-callback" prop is deprecated, please use "row-class" prop instead.');
         return;
       }
-
       if (typeof this.rowClass === 'function') {
         return this.rowClass(dataItem, index);
       }
-
       return this.rowClass;
     },
     onRowChanged: function onRowChanged(dataItem) {
@@ -3181,7 +3251,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3202,7 +3272,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3243,7 +3313,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3253,7 +3323,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _VuetablePaginationInfoMixin = __webpack_require__(4);
+var _VuetablePaginationInfoMixin = __webpack_require__(5);
 
 var _VuetablePaginationInfoMixin2 = _interopRequireDefault(_VuetablePaginationInfoMixin);
 
@@ -3264,7 +3334,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3321,7 +3391,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3409,7 +3479,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3420,19 +3490,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.install = exports.VuetablePaginationInfoMixin = exports.VuetablePaginationMixin = exports.VuetablePaginationInfo = exports.VuetablePaginationDropDown = exports.VuetablePagination = exports.Vuetable = undefined;
 
-var _Vuetable = __webpack_require__(12);
+var _Vuetable = __webpack_require__(15);
 
 var _Vuetable2 = _interopRequireDefault(_Vuetable);
 
-var _VuetablePagination = __webpack_require__(13);
+var _VuetablePagination = __webpack_require__(16);
 
 var _VuetablePagination2 = _interopRequireDefault(_VuetablePagination);
 
-var _VuetablePaginationDropdown = __webpack_require__(14);
+var _VuetablePaginationDropdown = __webpack_require__(17);
 
 var _VuetablePaginationDropdown2 = _interopRequireDefault(_VuetablePaginationDropdown);
 
-var _VuetablePaginationInfo = __webpack_require__(15);
+var _VuetablePaginationInfo = __webpack_require__(18);
 
 var _VuetablePaginationInfo2 = _interopRequireDefault(_VuetablePaginationInfo);
 
@@ -3440,11 +3510,11 @@ var _VuetablePaginationMixin = __webpack_require__(2);
 
 var _VuetablePaginationMixin2 = _interopRequireDefault(_VuetablePaginationMixin);
 
-var _VuetablePaginationInfoMixin = __webpack_require__(4);
+var _VuetablePaginationInfoMixin = __webpack_require__(5);
 
 var _VuetablePaginationInfoMixin2 = _interopRequireDefault(_VuetablePaginationInfoMixin);
 
-var _promisePolyfill = __webpack_require__(11);
+var _promisePolyfill = __webpack_require__(14);
 
 var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
 
@@ -3470,10 +3540,10 @@ exports.install = install;
 exports.default = _Vuetable2.default;
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(42)(false);
+exports = module.exports = __webpack_require__(45)(false);
 // imports
 
 
@@ -3484,7 +3554,7 @@ exports.push([module.i, "\n[v-cloak][data-v-5cc42bfc] {\n  display: none;\n}\n.v
 
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports) {
 
 /*
@@ -3566,7 +3636,409 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 43 */
+/* 46 */
+/***/ (function(module, exports) {
+
+/**
+ * Appends the elements of `values` to `array`.
+ *
+ * @private
+ * @param {Array} array The array to modify.
+ * @param {Array} values The values to append.
+ * @returns {Array} Returns `array`.
+ */
+function arrayPush(array, values) {
+  var index = -1,
+      length = values.length,
+      offset = array.length;
+
+  while (++index < length) {
+    array[offset + index] = values[index];
+  }
+  return array;
+}
+
+module.exports = arrayPush;
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayPush = __webpack_require__(46),
+    isFlattenable = __webpack_require__(52);
+
+/**
+ * The base implementation of `_.flatten` with support for restricting flattening.
+ *
+ * @private
+ * @param {Array} array The array to flatten.
+ * @param {number} depth The maximum recursion depth.
+ * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
+ * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
+ * @param {Array} [result=[]] The initial result value.
+ * @returns {Array} Returns the new flattened array.
+ */
+function baseFlatten(array, depth, predicate, isStrict, result) {
+  var index = -1,
+      length = array.length;
+
+  predicate || (predicate = isFlattenable);
+  result || (result = []);
+
+  while (++index < length) {
+    var value = array[index];
+    if (depth > 0 && predicate(value)) {
+      if (depth > 1) {
+        // Recursively flatten arrays (susceptible to call stack limits).
+        baseFlatten(value, depth - 1, predicate, isStrict, result);
+      } else {
+        arrayPush(result, value);
+      }
+    } else if (!isStrict) {
+      result[result.length] = value;
+    }
+  }
+  return result;
+}
+
+module.exports = baseFlatten;
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(4),
+    getRawTag = __webpack_require__(51),
+    objectToString = __webpack_require__(53);
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  if (value == null) {
+    return value === undefined ? undefinedTag : nullTag;
+  }
+  return (symToStringTag && symToStringTag in Object(value))
+    ? getRawTag(value)
+    : objectToString(value);
+}
+
+module.exports = baseGetTag;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseGetTag = __webpack_require__(48),
+    isObjectLike = __webpack_require__(11);
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]';
+
+/**
+ * The base implementation of `_.isArguments`.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ */
+function baseIsArguments(value) {
+  return isObjectLike(value) && baseGetTag(value) == argsTag;
+}
+
+module.exports = baseIsArguments;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+module.exports = freeGlobal;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(4);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+module.exports = getRawTag;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(4),
+    isArguments = __webpack_require__(57),
+    isArray = __webpack_require__(58);
+
+/** Built-in value references. */
+var spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined;
+
+/**
+ * Checks if `value` is a flattenable `arguments` object or array.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
+ */
+function isFlattenable(value) {
+  return isArray(value) || isArguments(value) ||
+    !!(spreadableSymbol && value && value[spreadableSymbol]);
+}
+
+module.exports = isFlattenable;
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString.call(value);
+}
+
+module.exports = objectToString;
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var freeGlobal = __webpack_require__(50);
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+module.exports = root;
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+/**
+ * Creates an array with all falsey values removed. The values `false`, `null`,
+ * `0`, `""`, `undefined`, and `NaN` are falsey.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {Array} array The array to compact.
+ * @returns {Array} Returns the new array of filtered values.
+ * @example
+ *
+ * _.compact([0, 1, false, 2, '', 3]);
+ * // => [1, 2, 3]
+ */
+function compact(array) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      resIndex = 0,
+      result = [];
+
+  while (++index < length) {
+    var value = array[index];
+    if (value) {
+      result[resIndex++] = value;
+    }
+  }
+  return result;
+}
+
+module.exports = compact;
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseFlatten = __webpack_require__(47);
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0;
+
+/**
+ * Recursively flattens `array`.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Array
+ * @param {Array} array The array to flatten.
+ * @returns {Array} Returns the new flattened array.
+ * @example
+ *
+ * _.flattenDeep([1, [2, [3, [4]], 5]]);
+ * // => [1, 2, 3, 4, 5]
+ */
+function flattenDeep(array) {
+  var length = array == null ? 0 : array.length;
+  return length ? baseFlatten(array, INFINITY) : [];
+}
+
+module.exports = flattenDeep;
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIsArguments = __webpack_require__(49),
+    isObjectLike = __webpack_require__(11);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Built-in value references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+/**
+ * Checks if `value` is likely an `arguments` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArguments(function() { return arguments; }());
+ * // => true
+ *
+ * _.isArguments([1, 2, 3]);
+ * // => false
+ */
+var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
+  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
+    !propertyIsEnumerable.call(value, 'callee');
+};
+
+module.exports = isArguments;
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray = Array.isArray;
+
+module.exports = isArray;
+
+
+/***/ }),
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -3756,10 +4228,10 @@ function toComment(sourceMap) {
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(52), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(12)))
 
 /***/ }),
-/* 44 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -3812,13 +4284,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(43);
+__webpack_require__(59);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 45 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3870,14 +4342,21 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('table', {
     class: ['vuetable', _vm.css.tableClass]
   }, [_c('thead', [_c('tr', [_vm._l((_vm.tableFields), function(field) {
-    return [(field.visible) ? [(_vm.isSpecialField(field.name)) ? [(_vm.extractName(field.name) == '__checkbox') ? _c('th', {
+    return [(field.visible) ? [(field.componentHeaderName != undefined) ? [_c('th', {
+      class: ['vuetable-th-header-component-' + _vm.trackBy, field.titleClass]
+    }, [_c(field.componentHeaderName, {
+      tag: "component",
+      attrs: {
+        "row-field": field.sortField
+      }
+    })], 1)] : (_vm.isSpecialField(field.name)) ? [(_vm.extractName(field.name) == '__checkbox') ? _c('th', {
       class: ['vuetable-th-checkbox-' + _vm.trackBy, field.titleClass]
     }, [_c('input', {
       attrs: {
@@ -3944,7 +4423,129 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })], 2)]), _vm._v(" "), _c('tbody', {
     staticClass: "vuetable-body"
   }, [_vm._l((_vm.tableData), function(item, index) {
-    return [_c('tr', {
+    return [(_vm.grouped) ? [_c('tr', [(_vm.groupField != undefined) ? [_c('th', {
+      class: ['vuetable-th-header-component-' + _vm.trackBy, item.titleClass],
+      attrs: {
+        "colspan": _vm.fields.length
+      }
+    }, [_c(_vm.groupField.componentGroupName, {
+      tag: "component",
+      attrs: {
+        "row-data": item.groupData,
+        "row-index": index,
+        "permissions": _vm.permissions
+      }
+    })], 1)] : [_c('th', {
+      attrs: {
+        "colspan": _vm.fields.length
+      }
+    }, [_vm._v(" " + _vm._s(item.groupName) + " ")])]], 2), _vm._v(" "), _vm._l((item.data), function(item, index) {
+      return [_c('tr', {
+        class: _vm.onRowClass(item, index),
+        attrs: {
+          "item-index": index,
+          "render": _vm.onRowChanged(item)
+        },
+        on: {
+          "dblclick": function($event) {
+            _vm.onRowDoubleClicked(item, $event)
+          },
+          "click": function($event) {
+            _vm.onRowClicked(item, $event)
+          }
+        }
+      }, [_vm._l((_vm.tableFields), function(field) {
+        return [(field.visible) ? [(_vm.isSpecialField(field.name)) ? [(_vm.extractName(field.name) == '__sequence') ? _c('td', {
+          class: ['vuetable-sequence', field.dataClass],
+          domProps: {
+            "innerHTML": _vm._s(_vm.renderSequence(index))
+          }
+        }) : _vm._e(), _vm._v(" "), (_vm.extractName(field.name) == '__handle') ? _c('td', {
+          class: ['vuetable-handle', field.dataClass],
+          domProps: {
+            "innerHTML": _vm._s(_vm.renderIconTag(['handle-icon', _vm.css.handleIcon]))
+          }
+        }) : _vm._e(), _vm._v(" "), (_vm.extractName(field.name) == '__checkbox') ? _c('td', {
+          class: ['vuetable-checkboxes', field.dataClass]
+        }, [_c('input', {
+          attrs: {
+            "type": "checkbox"
+          },
+          domProps: {
+            "checked": _vm.rowSelected(item, field.name)
+          },
+          on: {
+            "change": function($event) {
+              _vm.toggleCheckbox(item, field.name, $event)
+            }
+          }
+        })]) : _vm._e(), _vm._v(" "), (_vm.extractName(field.name) === '__component') ? _c('td', {
+          class: ['vuetable-component', field.dataClass]
+        }, [_c(_vm.extractArgs(field.name), {
+          tag: "component",
+          attrs: {
+            "field-settings": field.settings,
+            "row-data": item,
+            "row-index": index,
+            "row-field": field.sortField,
+            "permissions": _vm.permissions
+          }
+        })], 1) : _vm._e(), _vm._v(" "), (_vm.extractName(field.name) === '__slot') ? _c('td', {
+          class: ['vuetable-slot', field.dataClass]
+        }, [_vm._t(_vm.extractArgs(field.name), null, {
+          rowData: item,
+          rowIndex: index,
+          rowField: field.sortField
+        })], 2) : _vm._e()] : [(_vm.hasCallback(field)) ? _c('td', {
+          class: field.dataClass,
+          domProps: {
+            "innerHTML": _vm._s(_vm.callCallback(field, item))
+          },
+          on: {
+            "click": function($event) {
+              _vm.onCellClicked(item, field, $event)
+            },
+            "dblclick": function($event) {
+              _vm.onCellDoubleClicked(item, field, $event)
+            }
+          }
+        }) : _c('td', {
+          class: field.dataClass,
+          domProps: {
+            "innerHTML": _vm._s(_vm.getObjectValue(item, field.name, ''))
+          },
+          on: {
+            "click": function($event) {
+              _vm.onCellClicked(item, field, $event)
+            },
+            "dblclick": function($event) {
+              _vm.onCellDoubleClicked(item, field, $event)
+            }
+          }
+        })]] : _vm._e()]
+      })], 2), _vm._v(" "), (_vm.useDetailRow) ? [(_vm.isVisibleDetailRow(item[_vm.trackBy])) ? _c('tr', {
+        class: [_vm.css.detailRowClass],
+        on: {
+          "click": function($event) {
+            _vm.onDetailRowClick(item, $event)
+          }
+        }
+      }, [_c('transition', {
+        attrs: {
+          "name": _vm.detailRowTransition
+        }
+      }, [_c('td', {
+        attrs: {
+          "colspan": _vm.countVisibleFields
+        }
+      }, [_c(_vm.detailRowComponent, {
+        tag: "component",
+        attrs: {
+          "row-data": item,
+          "row-index": index
+        }
+      })], 1)])], 1) : _vm._e()] : _vm._e()]
+    })] : [_c('tr', {
       class: _vm.onRowClass(item, index),
       attrs: {
         "item-index": index,
@@ -3988,9 +4589,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }, [_c(_vm.extractArgs(field.name), {
         tag: "component",
         attrs: {
+          "field-settings": field.settings,
           "row-data": item,
           "row-index": index,
-          "row-field": field.sortField
+          "row-field": field.sortField,
+          "permissions": _vm.permissions
         }
       })], 1) : _vm._e(), _vm._v(" "), (_vm.extractName(field.name) === '__slot') ? _c('td', {
         class: ['vuetable-slot', field.dataClass]
@@ -4046,13 +4649,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "row-data": item,
         "row-index": index
       }
-    })], 1)])], 1) : _vm._e()] : _vm._e()]
+    })], 1)])], 1) : _vm._e()] : _vm._e()]]
   }), _vm._v(" "), (_vm.displayEmptyDataRow) ? [_c('tr', [_c('td', {
     staticClass: "vuetable-empty-result",
     attrs: {
       "colspan": _vm.countVisibleFields
     }
-  }, [_vm._v(_vm._s(_vm.noDataTemplate))])])] : _vm._e(), _vm._v(" "), (_vm.lessThanMinRows) ? _vm._l((_vm.blankRows), function(i) {
+  }, [_c('b', [_vm._v(" " + _vm._s(_vm.noDataTemplate) + " ")])])])] : _vm._e(), _vm._v(" "), (_vm.lessThanMinRows) ? _vm._l((_vm.blankRows), function(i) {
     return _c('tr', {
       staticClass: "blank-row"
     }, [_vm._l((_vm.tableFields), function(field) {
@@ -4069,7 +4672,7 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4152,7 +4755,7 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4172,17 +4775,17 @@ if (false) {
 }
 
 /***/ }),
-/* 49 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(41);
+var content = __webpack_require__(44);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(50)("764e777c", content, false);
+var update = __webpack_require__(66)("764e777c", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -4198,7 +4801,7 @@ if(false) {
 }
 
 /***/ }),
-/* 50 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -4217,7 +4820,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(51)
+var listToStyles = __webpack_require__(67)
 
 /*
 type StyleObject = {
@@ -4419,7 +5022,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 51 */
+/* 67 */
 /***/ (function(module, exports) {
 
 /**
@@ -4449,33 +5052,6 @@ module.exports = function listToStyles (parentId, list) {
   }
   return styles
 }
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
 
 
 /***/ })
