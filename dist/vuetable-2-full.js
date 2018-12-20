@@ -1129,7 +1129,7 @@ process.umask = function() { return 0; };
   var setTimeoutFunc = setTimeout;
 
   function noop() {}
-  
+
   // Polyfill for Function.prototype.bind
   function bind(fn, thisArg) {
     return function () {
@@ -1347,7 +1347,7 @@ process.umask = function() { return 0; };
   Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
     Promise._unhandledRejectionFn = fn;
   };
-  
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = Promise;
   } else if (!root.Promise) {
@@ -3292,7 +3292,7 @@ exports.default = {
     noDataTemplate: {
       type: String,
       default: function _default() {
-        return 'No relevant data';
+        return '';
       }
     }
   },
