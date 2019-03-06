@@ -59,7 +59,7 @@
             </template>
           </tr>
           <template v-for="(item, index) in item.data">
-            <tr @dblclick="onRowDoubleClicked(item, $event)" :item-index="index" @click="onRowClicked(item, $event)" :render="onRowChanged(item)" :class="onRowClass(item, index)">
+            <tr @dblclick="onRowDoubleClicked(item, $event)" :item-index="index" @click="onRowClicked(item, $event)" :render="onRowChanged(item)" :class="onRowClass(item, index), v-if="item.hide || true">
               <template v-for="field in tableFields">
                 <template v-if="field.visible">
                   <template v-if="isSpecialField(field.name)">
