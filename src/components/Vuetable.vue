@@ -50,7 +50,7 @@
           <tr>
             <template v-if="groupField != undefined">
               <th :colspan='fields.length' :class="['vuetable-th-header-component-'+trackBy, item.titleClass]">
-                <component :is="groupField.componentGroupName" :row-data="item.groupData" :row-index="index" :permissions="permissions">
+                <component :is="groupField.componentGroupName" :row-data="item.groupData" :row-index="index" :permissions="permissions" :passRef="passRef">
                 </component>
               </th>
             </template>
@@ -76,7 +76,7 @@
                     </td>
                     <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
                       <component :is="extractArgs(field.name)"
-                        :field-settings="field.settings" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions"
+                        :field-settings="field.settings" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions" :passRef="passRef"
                       ></component>
                     </td>
                     <td v-if="extractName(field.name) === '__slot'" :class="['vuetable-slot', field.dataClass]">
@@ -134,7 +134,7 @@
                   </td>
                   <td v-if="extractName(field.name) === '__component'" :class="['vuetable-component', field.dataClass]">
                     <component :is="extractArgs(field.name)"
-                      :field-settings="field.settings" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions"
+                      :field-settings="field.settings" :row-data="item" :row-index="index" :row-field="field.sortField" :permissions="permissions" :passRef="passRef"
                     ></component>
                   </td>
                   <td v-if="extractName(field.name) === '__slot'" :class="['vuetable-slot', field.dataClass]">
@@ -199,6 +199,10 @@ import flattenDeep from 'lodash/flattenDeep'
 import compact from 'lodash/compact'
 export default {
   props: {
+    passRef: {
+      type: String,
+      default: "vuetable"
+    },
     permissions: {
       type: Object
     },
