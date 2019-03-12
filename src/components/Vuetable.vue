@@ -435,15 +435,15 @@ export default {
     }
   },
   methods: {
-    normalizeFields () {
-      if (typeof(this.fields) === 'undefined') {
+    normalizeFields (fields=this.fields) {
+      if (typeof(fields) === 'undefined') {
         this.warn('You need to provide "fields" prop.')
         return
       }
       this.tableFields = []
       let self = this
       let obj
-      this.fields.forEach(function(field, i) {
+      fields.forEach(function(field, i) {
         if (typeof (field) === 'string') {
           obj = {
             name: field,
