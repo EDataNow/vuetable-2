@@ -1,6 +1,6 @@
 <template>
   <table :class="['vuetable', css.tableClass]">
-    <thead>
+    <thead v-show="showHeader">
       <tr>
         <template v-for="field in tableFields">
           <template v-if="field.visible">
@@ -199,6 +199,10 @@ import flattenDeep from 'lodash/flattenDeep'
 import compact from 'lodash/compact'
 export default {
   props: {
+    showHeader: {
+      type: Boolean,
+      default: true
+    },
     passRef: {
       type: String,
       default: "vuetable"
